@@ -1,0 +1,48 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "name": "Maquina de Lavar 1",
+            "price": 1.0079,
+            "category_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Maquina de Lavar 2",
+            "price": 1.0079,
+            "category_id": 1
+        },
+        {
+            "id": 3,
+            "name": "Maquina de Lavar 3",
+            "price": 1.0079,
+            "category_id": 1
+        },
+        {
+            "id": 4,
+            "name": "Eletrônicos 1",
+            "price": 1.0079,
+            "category_id": 2
+        },
+        {
+            "id": 5,
+            "name": "Informática 1",
+            "price": 1.0079,
+            "category_id": 3
+        }
+    ],
+    "categorias": [
+        {
+            "id": 1,
+            "name": "Eletrodomésticos"
+        },
+        {
+            "id": 2,
+            "name": "Eletrônicos"
+        },
+        {
+            "id": 3,
+            "name": "Informática"
+        }
+    ]
+}

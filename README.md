@@ -12,12 +12,12 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Back End 
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+To run the back end, needs to be inside the path eletrolux\app-electrolux\backEnd ,run:
 
 ```bash
-ng generate component component-name
+json-server --watch db.json
 ```
 
 For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
