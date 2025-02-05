@@ -1,0 +1,10 @@
+table {
+    width: 85%;
+  }
+.details {
+  color: #011E41;
+}
+
+.details mat-icon {
+  margin-left: 10px;
+}
