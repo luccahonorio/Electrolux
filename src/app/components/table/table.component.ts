@@ -1,6 +1,10 @@
 import {Component} from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatIcon} from '@angular/material/icon';
+import {MatFormField} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 export interface PeriodicElement {
   name: string;
@@ -24,7 +28,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-table',
-  imports: [MatTableModule,MatIcon],
+  imports: [MatTableModule,MatIcon,MatInputModule,MatButtonModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
