@@ -23,10 +23,9 @@ export class AddItemModalComponent {
   }
 
   createProduct() {
-    if(this.name || this.price || this.category || this.color) {
-     
-    }
+    if(!this.name || !this.price || !this.category || !this.color || !this.description) {}
 
+    
     this.productService.createProduct({name: this.name, price: this.price ?? 0, category: this.category, color: this.color, description:this.description})
     .subscribe(() => {
       this.dialogRef.close(true);

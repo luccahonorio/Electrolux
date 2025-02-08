@@ -1,14 +1,14 @@
 <div class="home-container">
   <div class="search-container">
-    <input type="text" class="search-bar" placeholder="Buscar por produto" />
+    <input type="text" class="search-bar" [formControl]="searchControl" placeholder="Buscar por nome do produto">
     <button mat-fab extended color="primary" class="searchItem" (click)="openAddItemModal()">
       <mat-icon>add</mat-icon>
-      Adicionar Item
+      Adicionar Novo Produto
     </button>
   </div>
 
   <div class="table-container">
-    <table mat-table [dataSource]="products">
+    <table mat-table [dataSource]="filteredProducts" class="mat-elevation-z8">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> Número </th>
         <td mat-cell *matCellDef="let product"> {{product.id}} </td>
@@ -32,7 +32,7 @@
       <ng-container matColumnDef="details">
         <th mat-header-cell *matHeaderCellDef> Detalhes </th>
         <td mat-cell *matCellDef="let product" class="details">
-          <button mat-icon-button class="buttonStyle" (click)="openDetailsModal(product.id)"> 
+          <button mat-icon-button class="buttonStyle" (click)="openDetailsModal(product.id)">
             <mat-icon class="infoi">info</mat-icon>
           </button>
         </td>

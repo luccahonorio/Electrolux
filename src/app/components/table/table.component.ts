@@ -1,35 +1,47 @@
-import {Component} from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-import {MatIcon} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { Component, OnInit } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatIcon } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../modules/product.model';
-import { Observable } from 'rxjs';
-import { FormsModule } from '@angular/forms';
+import { Observable, combineLatest, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { AddItemModalComponent } from '../add-item-modal/add-item-modal.component';
 import { DetailsModalComponent } from '../details-modal/details-modal.component';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-table',
-  imports: [MatTableModule,MatIcon,MatInputModule,MatButtonModule,FormsModule],
+  imports: [MatTableModule, MatIcon, MatInputModule, MatButtonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  styleUrls: ['./table.component.css']
 })
-
-export class TableComponent {
+export class TableComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'price', 'category', 'details'];
-  products = new Observable<Product[]>();
-  id = '';
-  constructor(private productService: ProductService,  public dialog: MatDialog) { }
+  products!: Observable<Product[]>;
+  filteredProducts!: Observable<Product[]>;
+  searchControl = new FormControl();
+
+  constructor(private productService: ProductService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.getProducts();
+    this.products = this.productService.getProducts();
+    this.filteredProducts = combineLatest([
+      this.products,
+      this.searchControl.valueChanges.pipe(startWith(''))
+    ]).pipe(
+      map(([products, searchValue]) => this.filterProducts(products, searchValue))
+    );
   }
 
-  getProducts() {
-    this.products = this.productService.getProducts();
+  filterProducts(products: Product[], searchValue: string): Product[] {
+    if (!searchValue.trim()) {
+      return products;
+    }
+    const filterValue = searchValue.toLowerCase();
+    return products.filter(product => product.name.toLowerCase().includes(filterValue));
   }
 
   openAddItemModal() {
@@ -37,7 +49,13 @@ export class TableComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.getProducts(); 
+        this.products = this.productService.getProducts();
+        this.filteredProducts = combineLatest([
+          this.products,
+          this.searchControl.valueChanges.pipe(startWith(''))
+        ]).pipe(
+          map(([products, searchValue]) => this.filterProducts(products, searchValue))
+        );
       }
     });
   }
