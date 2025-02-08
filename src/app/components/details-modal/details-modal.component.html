@@ -1,0 +1,14 @@
+<div class="modal">
+  <div class="header">
+    <h2>Detalhes do Produto</h2>
+    <button class="close" (click)="closeModal()">X</button>
+  </div>
+  <div class="details">
+    <p><strong>Nome:</strong> {{ data.name }}</p>
+    <p><strong>Preço:</strong> {{ data.price }}</p>
+    <p><strong>Categoria:</strong> {{ data.category }}</p>
+    <p><strong>Cor:</strong> {{ data.color }}</p>
+    <p><strong>Descrição:</strong> {{ data.description }}</p>
+  </div>
+</div>
+<div class="overlay"></div>

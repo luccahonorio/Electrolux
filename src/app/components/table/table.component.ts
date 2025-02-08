@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddItemModalComponent } from '../add-item-modal/add-item-modal.component';
+import { DetailsModalComponent } from '../details-modal/details-modal.component';
 
 @Component({
   selector: 'app-table',
@@ -38,6 +39,15 @@ export class TableComponent {
       if (result) {
         this.getProducts(); 
       }
+    });
+  }
+
+  openDetailsModal(productId: number) {
+    this.products.subscribe(products => {
+      const product = products.find(p => p.id === productId);
+      const dialogRef = this.dialog.open(DetailsModalComponent, {
+        data: product
+      });
     });
   }
 }

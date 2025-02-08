@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Maquina de Lavar 1",
       "price": 1800,
-      "descricao": "Maquina de lavar Electrolux conforto 10kg",
+      "description": "Maquina de lavar Electrolux conforto 10kg",
       "category": "Eletrodomésticos",
       "color": "Branca"
     },
@@ -12,7 +12,7 @@
       "id": "2",
       "name": "Maquina de Lavar 2",
       "price": 5000,
-      "descricao": "Maquina de lavar Electrolux conforto 20kg",
+      "description": "Maquina de lavar Electrolux conforto 20kg",
       "category": "Eletrodomésticos",
       "color": "Branca"
     },
@@ -20,7 +20,7 @@
       "id": "3",
       "name": "Maquina de Lavar 3",
       "price": 2200,
-      "descricao": "Maquina de lavar Electrolux conforto 16kg",
+      "description": "Maquina de lavar Electrolux conforto 16kg",
       "category": "Eletrodomésticos",
       "color": "Branca"
     },
@@ -28,7 +28,7 @@
       "id": "4",
       "name": "Maquina de Lavar 4",
       "price": 2000,
-      "descricao": "Maquina de lavar Electrolux conforto 15kg",
+      "description": "Maquina de lavar Electrolux conforto 15kg",
       "category": "Eletrodomésticos",
       "color": "Branca"
     },
@@ -36,7 +36,7 @@
       "id": "5",
       "name": "Maquina de Lavar 5",
       "price": 1500,
-      "descricao": "Maquina de lavar Electrolux conforto 8kg",
+      "description": "Maquina de lavar Electrolux conforto 8kg",
       "category": "Eletrodomésticos",
       "color": "Branca"
     }
