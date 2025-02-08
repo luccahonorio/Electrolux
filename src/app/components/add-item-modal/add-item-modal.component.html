@@ -1,0 +1,18 @@
+<div class="modal">
+    <div class="header">
+        <h2>Adicionar novo item:</h2>
+        <button class="close" (click)="closeModal()">X</button>
+    </div>
+    <div class="questionsModal">
+        <input type="text" id="name" [(ngModel)]="name" placeholder="Nome do produto: " />
+        <input type="text" id="price" [(ngModel)]="price" placeholder="Preço do produto: " />
+        <input type="text" id="category" [(ngModel)]="category" placeholder="Categoria do produto: " />
+        <input type="text" id="category" [(ngModel)]="color" placeholder="Cor do produto: " />
+    </div>
+    <div class="addButton">
+        <button mat-fab extended>
+            Adicionar
+          </button>
+    </div>
+</div>
+<div class="overlay"></div>

@@ -5,29 +5,33 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../modules/product.model';
+import { Observable } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AddItemModalComponent } from '../add-item-modal/add-item-modal.component';
 
 @Component({
   selector: 'app-table',
-  imports: [MatTableModule,MatIcon,MatInputModule,MatButtonModule],
+  imports: [MatTableModule,MatIcon,MatInputModule,MatButtonModule,FormsModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
 
 export class TableComponent {
-
-  products: Product[] = [];
-  
-  constructor(private productService: ProductService) { }
+  displayedColumns: string[] = ['position', 'name', 'price', 'category', 'details'];
+  products = new Observable<Product[]>();
+  id = '';
+  constructor(private productService: ProductService,  public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts() {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    this.products = this.productService.getProducts();
   }
-  displayedColumns: string[] = ['position', 'name', 'price', 'category', 'details'];
-  dataSource = this.products;
+
+  openAddItemModal() {
+    this.dialog.open(AddItemModalComponent);
+  }
 }
