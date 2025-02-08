@@ -32,6 +32,12 @@ export class TableComponent {
   }
 
   openAddItemModal() {
-    this.dialog.open(AddItemModalComponent);
+    const dialogRef = this.dialog.open(AddItemModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getProducts(); 
+      }
+    });
   }
 }

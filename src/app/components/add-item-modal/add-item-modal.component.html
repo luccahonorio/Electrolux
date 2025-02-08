@@ -7,10 +7,11 @@
         <input type="text" id="name" [(ngModel)]="name" placeholder="Nome do produto: " />
         <input type="text" id="price" [(ngModel)]="price" placeholder="Preço do produto: " />
         <input type="text" id="category" [(ngModel)]="category" placeholder="Categoria do produto: " />
-        <input type="text" id="category" [(ngModel)]="color" placeholder="Cor do produto: " />
+        <input type="text" id="color" [(ngModel)]="color" placeholder="Cor do produto: " />
+        <textarea id="description" placeholder="Descrição do produto: " matInput ></textarea>
     </div>
     <div class="addButton">
-        <button mat-fab extended>
+        <button mat-fab extended (click)="createProduct()" [disabled]="!isFormValid()">
             Adicionar
           </button>
     </div>

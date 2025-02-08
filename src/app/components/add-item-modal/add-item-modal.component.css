@@ -61,10 +61,18 @@ button {
 }
 
 .questionsModal input{
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid var(--primary-color);
   height: 1.8rem;
   padding: 0.4rem;
+}
+
+.questionsModal textarea{
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  padding: 0.4rem;
+  width: 30rem;
+  height: 10rem;
 }
 
 .addButton{
@@ -82,4 +90,5 @@ button {
   color: var(--background-color);
   padding: 0.5rem 1rem;
 }
+
 
