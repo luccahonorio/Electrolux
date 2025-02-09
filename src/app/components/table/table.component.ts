@@ -62,7 +62,7 @@ export class TableComponent implements OnInit {
           duration: 3000, 
         });
       } else {
-        this.snackBar.open('Falha ao criar o produto. Tente novamente.', 'Fechar', {
+        this.snackBar.open('Falha ao criar o produto. Adicione todos os campos e tente novamente.', 'Fechar', {
           duration: 3000, 
         });
       }
