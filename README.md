@@ -28,7 +28,7 @@ To run the back end, needs to be inside the path src/db and run:
 json-server --watch db.json
 ```
 
-# decisoes tomadas
+## Technical Decisions
 
 For the project, it was created using the Angular CLI for the latest available LTS version.
 Fix the creation of components, services, and modules using the Angular generate command:
