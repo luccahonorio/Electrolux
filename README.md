@@ -2,6 +2,14 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
+# steps to run:
+
+first of all:
+run
+```bash
+npm i
+```
+
 ## Development server
 
 To start a local development server, run:
@@ -14,46 +22,49 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Back End 
 
-To run the back end, needs to be inside the path eletrolux\app-electrolux\backEnd ,run:
+To run the back end, needs to be inside the path src/db and run:
 
 ```bash
 json-server --watch db.json
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# decisoes tomadas
+
+For the project, it was created using the Angular CLI for the latest available LTS version.
+Fix the creation of components, services, and modules using the Angular generate command:
 
 ```bash
-ng generate --help
+ng generate c components/(componentName)
 ```
 
-## Building
+For the backend, I preferred to use json-server to avoid spending time creating a database and routes. This way, json-server saved a lot of development time.
 
-To build the project run:
+For the requests that I would make inside the database, I created a service where I declare the "getProducts" call to fetch all products, and "createProduct" to create products in the database.
 
-```bash
-ng build
-```
+This resulted in the creation of the four components that make up the page. Inside each of their TypeScript files, they call the service to make the necessary requests at each part of the code.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The three most complex components are the table, addItemModal, and detailsModal.
 
-## Running unit tests
+The table is complex because of the usage of the Angular Material library and its styling. It also includes a product search where I filtered products based on the user’s input for the product name, and the opening of the two modals I created. For those modals, I used dialogRef to open and close them and to send error or success messages when creating products.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+The addItemModal's complexity is in creating the items and sending them to the database. This is done through the service, which handles saving to the database.
 
-```bash
-ng test
-```
+The detailsModal involved injecting the product data and displaying these values.
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+## Conclusion
 
-```bash
-ng e2e
-```
+This project was developed with a focus on simplicity and efficiency. The choice of Angular CLI and json-server contributed to rapid and organized development, making the project scalable and easy to maintain.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+
+
+
+
+
+
+
