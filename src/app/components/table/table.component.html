@@ -1,14 +1,14 @@
-<div class="home-container">
-  <div class="search-container">
-    <input type="text" class="search-bar" [formControl]="searchControl" placeholder="Buscar por nome do produto">
+<div class="homeContainer">
+  <div class="searchContainer">
+    <input type="text" class="searchBar" [formControl]="searchControl" placeholder="Buscar por nome do produto">
     <button mat-fab extended color="primary" class="searchItem" (click)="openAddItemModal()">
       <mat-icon>add</mat-icon>
       Adicionar Novo Produto
     </button>
   </div>
 
-  <div class="table-container">
-    <table mat-table [dataSource]="filteredProducts" class="mat-elevation-z8">
+  <div class="tableContainer">
+    <table mat-table [dataSource]="filteredProducts">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> Número </th>
         <td mat-cell *matCellDef="let product"> {{product.id}} </td>
