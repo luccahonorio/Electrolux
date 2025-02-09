@@ -23,7 +23,10 @@ export class AddItemModalComponent {
   }
 
   createProduct() {
-    if(!this.name || !this.price || !this.category || !this.color || !this.description) {}
+    if(!this.name || !this.price || !this.category || !this.color || !this.description) {
+      this.dialogRef.close(false)
+      return
+    }
 
     
     this.productService.createProduct({name: this.name, price: this.price ?? 0, category: this.category, color: this.color, description:this.description})

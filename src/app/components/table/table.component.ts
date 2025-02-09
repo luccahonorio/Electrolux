@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddItemModalComponent } from '../add-item-modal/add-item-modal.component';
 import { DetailsModalComponent } from '../details-modal/details-modal.component';
 import { startWith, map } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-table',
@@ -24,7 +25,7 @@ export class TableComponent implements OnInit {
   filteredProducts!: Observable<Product[]>;
   searchControl = new FormControl();
 
-  constructor(private productService: ProductService, public dialog: MatDialog) { }
+  constructor(private productService: ProductService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.products = this.productService.getProducts();
@@ -46,7 +47,7 @@ export class TableComponent implements OnInit {
 
   openAddItemModal() {
     const dialogRef = this.dialog.open(AddItemModalComponent);
-
+  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.products = this.productService.getProducts();
@@ -56,6 +57,14 @@ export class TableComponent implements OnInit {
         ]).pipe(
           map(([products, searchValue]) => this.filterProducts(products, searchValue))
         );
+  
+        this.snackBar.open('Produto criado com sucesso!', 'Fechar', {
+          duration: 3000, 
+        });
+      } else {
+        this.snackBar.open('Falha ao criar o produto. Tente novamente.', 'Fechar', {
+          duration: 3000, 
+        });
       }
     });
   }
