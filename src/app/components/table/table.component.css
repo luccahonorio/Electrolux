@@ -33,9 +33,7 @@ table {
 th,
 td {
   text-align: center;
-  /* Centraliza o texto */
   padding: 8px;
-  /* Adiciona padding para espaçamento */
 }
 
 .buttonStyle {
